@@ -1,5 +1,12 @@
 # HABIT-TERM
 
+<img width="648" height="271" alt="brand" src="https://github.com/user-attachments/assets/6aee7faf-5655-485a-bda2-2b7e744d11ff" />
+
+[![GitHub stars](https://img.shields.io/github/stars/Kuntal-Gain/Habit-Term?style=for-the-badge&logo=github)](https://github.com/Kuntal-Gain/Habit-Term/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Kuntal-Gain/Habit-Term?style=for-the-badge&logo=github)](https://github.com/Kuntal-Gain/Habit-Term/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/Kuntal-Gain/Habit-Term?style=for-the-badge&logo=github)](https://github.com/Kuntal-Gain/Habit-Term/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Kuntal-Gain/Habit-Term?style=for-the-badge&logo=github)](https://github.com/Kuntal-Gain/Habit-Term/commits/master)
+
 **A terminal-styled, offline-first habit tracker built with Flutter.**
 
 Small steps. Big version of you.
