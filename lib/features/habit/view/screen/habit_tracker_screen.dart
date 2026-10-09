@@ -53,10 +53,26 @@ class HabitTrackerScreen extends StatelessWidget {
     });
   }
 
+   void _handleCommand(BuildContext context, String command) {
+    switch (command) {
+      case '1':
+        print("pressed 1");
+      case '2':
+       print("pressed 2");
+      case '3':
+        print("pressed 3");
+      case '4':
+        context.pop();
+      default:
+        context.push(command);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return TerminalScreenScaffold(
       commandLabel: 'habit/$habitId',
+      onSubmit: (command) => _handleCommand(context, command),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,19 +104,19 @@ class HabitTrackerScreen extends StatelessWidget {
             TerminalShortcutBar(
               shortcuts: [
                 TerminalShortcut(
-                  shortcutKey: '✓',
+                  shortcutKey: '1',
                   label: 'Mark Done',
                 ),
                 TerminalShortcut(
-                  shortcutKey: 'e',
+                  shortcutKey: '2',
                   label: 'Edit',
                 ),
                 TerminalShortcut(
-                  shortcutKey: 'd',
+                  shortcutKey: '3',
                   label: 'Delete',
                 ),
                 TerminalShortcut(
-                  shortcutKey: 'b',
+                  shortcutKey: '4',
                   label: 'Back',
                   onTap: () => context.pop(),
                 ),

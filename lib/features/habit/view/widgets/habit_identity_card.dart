@@ -4,6 +4,7 @@ import 'package:habit_term/core/theme/app_colors.dart';
 import 'package:habit_term/core/theme/app_radii.dart';
 import 'package:habit_term/core/theme/app_spacing.dart';
 import 'package:habit_term/core/theme/app_typography.dart';
+import 'package:svg_flutter/svg.dart';
 
 /// Icon, name, and `Frequency · Target` subtitle for a single habit.
 class HabitIdentityCard extends StatelessWidget {
@@ -37,7 +38,7 @@ class HabitIdentityCard extends StatelessWidget {
               border: Border.all(color: AppColors.primary),
               borderRadius: AppRadii.cardRadius,
             ),
-            child: Icon(icon, color: AppColors.primary, size: 28),
+            child: SvgPicture.asset('assets/icons/task_finisher.svg'),
           ),
           const SizedBox(width: AppSpacing.lg),
           Expanded(

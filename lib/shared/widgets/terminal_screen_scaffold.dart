@@ -17,6 +17,7 @@ class TerminalScreenScaffold extends StatelessWidget {
     required this.body,
     this.suggestions = defaultCommandSuggestions,
     this.onSubmit,
+    this.showCommandInput = true,
   });
 
   /// The word shown after `> ` in the header, e.g. `whoami`, `today`, `stats`.
@@ -27,6 +28,11 @@ class TerminalScreenScaffold extends StatelessWidget {
 
   /// Handles a submitted command. Defaults to `context.push(command)`.
   final ValueChanged<String>? onSubmit;
+
+  /// Whether to render the bottom `/`-command input and its `[ Enter ]`
+  /// hint. Screens with their own primary action (e.g. a form submit
+  /// button) can set this to `false`.
+  final bool showCommandInput;
 
   static const List<String> defaultCommandSuggestions = [
     AppRoutes.today,
@@ -87,51 +93,54 @@ class TerminalScreenScaffold extends StatelessWidget {
 
               Expanded(child: body),
 
-              const SizedBox(height: 14),
+              if (showCommandInput) ...[
+                const SizedBox(height: 14),
 
-              // ─────────────────────────────────────────────
-              // Command input
-              // ─────────────────────────────────────────────
-Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Row(
-                children: [
-                  Text(
-                    'Press ',
-                    style: AppTypography.body(
-                      color: AppColors.primary,
-                    ),
-                  ),
-                  Text(
-                    '[ Enter ]',
-                    style: AppTypography.body(
-                      color: AppColors.primary,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    ' to continue ',
-                    style: AppTypography.body(
-                      color: AppColors.primary,
-                    ),
-                  ),
-                  Text(
-                    '→',
-                    style: AppTypography.body(
-                      color: AppColors.primary,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 14),
-              TerminalCommandInput(
-                suggestions: suggestions,
-                onSubmit: onSubmit ?? (command) => context.push(command),
-              ),
+                // ─────────────────────────────────────────────
+                // Command input
+                // ─────────────────────────────────────────────
 
-              const SizedBox(height: 14),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Press ',
+                        style: AppTypography.body(
+                          color: AppColors.primary,
+                        ),
+                      ),
+                      Text(
+                        '[ Enter ]',
+                        style: AppTypography.body(
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        ' to continue ',
+                        style: AppTypography.body(
+                          color: AppColors.primary,
+                        ),
+                      ),
+                      Text(
+                        '→',
+                        style: AppTypography.body(
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 14),
+                TerminalCommandInput(
+                  suggestions: suggestions,
+                  onSubmit: onSubmit ?? (command) => context.push(command),
+                ),
+                const SizedBox(height: 14),
+              ] else
+                const SizedBox(height: 14),
             ],
           ),
         ),

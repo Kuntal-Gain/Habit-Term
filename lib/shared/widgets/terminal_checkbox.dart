@@ -18,20 +18,23 @@ class TerminalCheckbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size,
-      height: size,
+      width: size * 1.15,
+      height: size * 1.15,
       alignment: Alignment.center,
+      padding: const EdgeInsets.symmetric(horizontal: 2),
       decoration: BoxDecoration(
         color: checked ? AppColors.primary : null,
         border: Border.all(
           color: checked ? AppColors.primary : AppColors.border,
         ),
-        
       ),
       child: checked
-          ? Text(
-              '[x]',
-              style: AppTypography.command(color: AppColors.black),
+          ? FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                '[x]',
+                style: AppTypography.command(color: AppColors.black),
+              ),
             )
           : null,
     );
